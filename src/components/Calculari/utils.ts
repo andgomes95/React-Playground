@@ -2,7 +2,6 @@ type TimeToCalculate = {
   signalPlus: string;
   hour: number;
   minutes: number;
-
 }
 
 export const simpleSum = (value1: string,value2: string): string => {
@@ -33,6 +32,19 @@ export const simpleSum = (value1: string,value2: string): string => {
     return erro.message;
   }
 } 
+
+export const multTimeToInteger = (value1: string, value2: string): string =>{
+  try{
+    if(value1.includes(':')){
+      let valAux1 = stringToTimeToCalculate(value1);
+      let valAux2 = parseInt(value2);
+      return multTimeToCalculateToInteger(valAux1,valAux2);
+    }
+    return handleError();
+  }catch(erro: any){
+    return erro.message;
+  }
+}
 
 const handleError = (): string =>{
   return 'Format Error' 
@@ -68,4 +80,14 @@ const subTimeToCalculate = (value1: TimeToCalculate, value2: TimeToCalculate): s
       valAux3.hour = valAux3.hour - 1;
     }
     return timeToCalculateToString(valAux3);
+}
+
+const multTimeToCalculateToInteger = (value1: TimeToCalculate, value2: number): string => {
+  value1.hour = value1.hour * value2;
+  value1.minutes = value1.minutes * value2;
+  if(value1.minutes > 60){
+    value1.hour = value1.hour + Math.round(value1.minutes/60);
+    value1.minutes = value1.minutes % 60;
+  }
+  return timeToCalculateToString(value1);
 }

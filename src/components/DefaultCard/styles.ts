@@ -27,12 +27,19 @@ export const TitleCard = styled.h2`
   }
 `;
 
+export const DescriptionCard = styled.p`
+  font-size: 1em;
+  color: #FFF;
+`;
+
 export const InputCard = styled.input`
   width: 40%;
   padding: 5px;
   margin: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid papayawhip;
   border-radius: 4px;
+  color: #BF4F74;
+  font-size: 1em;
   @media (max-width: 767px){
     width: calc(90% - 20px);
     display: flex;

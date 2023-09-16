@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { ButtonConfirmCard, ButtonContainer, DefaultCard,InputCard,TitleCard } from '../../DefaultCard/styles';
+import { ButtonConfirmCard, ButtonContainer, DefaultCard,DescriptionCard,InputCard,TitleCard } from '../../DefaultCard/styles';
 interface CardProps {
   title: string;
   onCalculate: (value1: string, value2: string) => string;
+  description: string;
 }
 
-const CalculatorCard: React.FC<CardProps> = ({ title,onCalculate }) => {
+const CalculatorCard: React.FC<CardProps> = ({ title,onCalculate,description }) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
@@ -25,6 +26,7 @@ const CalculatorCard: React.FC<CardProps> = ({ title,onCalculate }) => {
   return (
     <DefaultCard>
       <TitleCard>{title}</TitleCard>
+      <DescriptionCard>{description}</DescriptionCard>
       <InputCard 
         type="text" 
         placeholder="Input 1"
