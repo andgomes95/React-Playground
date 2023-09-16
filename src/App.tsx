@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Calculari from './components/Calculari';
 import AnimeSeason from './components/AnimeSeason';
 import Organizer from './components/Organizer';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -14,12 +15,17 @@ const AppContainer = styled.div`
 function App() {
   
   return (
-    <AppContainer>
-      <NavBar />
-      <Calculari />
-      <AnimeSeason />
-      <Organizer />
-    </AppContainer>
+    <Router>
+      <AppContainer>
+        <NavBar />
+        <Routes>
+          <Route path="/" Component={Calculari}/>
+          <Route path="/calculari" Component={Calculari}/>
+          <Route path="/animeseason" Component={AnimeSeason}/>
+          <Route path="/organizer" Component={Organizer}/>
+        </Routes>
+      </AppContainer>
+    </Router>
   );
 }
 

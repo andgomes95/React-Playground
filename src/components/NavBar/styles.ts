@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Title = styled.h2`
   font-size: 1.5em;
@@ -13,7 +14,8 @@ export const Wrapper = styled.section`
   justify-content: center;
 `;
 
-export const ShortlinkNavBar = styled.li`
+export const ShortlinkNavBar = styled(Link)`
+  text-decoration: none;
   min-width: 120px;
   font-size: 1em;
   display: flex;

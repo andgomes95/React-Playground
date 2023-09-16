@@ -1,14 +1,14 @@
+import { Link } from 'react-router-dom';
 import { PagesNavBar, ShortlinkNavBar, Title, Wrapper } from './styles';
 
 function NavBar(){
-  const shortcuts = ['CALCULARI','ANIME SEASON','ORGANIZER']
   return(
     <Wrapper>
         <Title>React Playground</Title>
         <PagesNavBar>
-          { shortcuts.map((text)=>(
-            <ShortlinkNavBar>{text}</ShortlinkNavBar>
-          )) }
+            <ShortlinkNavBar to="/calculari">CALCULARI</ShortlinkNavBar>
+            <ShortlinkNavBar to="/animeseason">ANIME SEASON</ShortlinkNavBar>
+            <ShortlinkNavBar to="/organizer">ORGANIZER</ShortlinkNavBar>
         </PagesNavBar>
       </Wrapper>
   );
