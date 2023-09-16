@@ -8,12 +8,23 @@ export const DefaultCard = styled.div`
   background: #BF4F74;
   border-radius: 1em;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 767px){
+    width: calc(90% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
 `;
 
 export const TitleCard = styled.h2`
   font-size: 1.5em;
   color: papayawhip;
   display: flex;
+  @media (max-width: 767px){
+    justify-content: center;
+  }
 `;
 
 export const InputCard = styled.input`
@@ -22,6 +33,13 @@ export const InputCard = styled.input`
   margin: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  @media (max-width: 767px){
+    width: calc(90% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
 `;
 
 export const ButtonConfirmCard = styled.button`
@@ -45,4 +63,7 @@ export const ButtonConfirmCard = styled.button`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 767px){
+    justify-content: center;
+  }
 `;
