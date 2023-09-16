@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { ButtonConfirmCard, ButtonContainer, DefaultCard,DescriptionCard,InputCard,TitleCard } from '../../DefaultCard/styles';
-interface CardProps {
+interface CalculatorCardProps {
   title: string;
   onCalculate: (value1: string, value2: string) => string;
   description: string;
 }
 
-const CalculatorCard: React.FC<CardProps> = ({ title,onCalculate,description }) => {
+const CalculatorCard: React.FC<CalculatorCardProps> = ({ title,onCalculate,description }) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');

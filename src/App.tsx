@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import styled from 'styled-components';
 import Calculari from './components/Calculari';
+import AnimeSeason from './components/AnimeSeason';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -15,6 +16,7 @@ function App() {
     <AppContainer>
       <NavBar />
       <Calculari />
+      <AnimeSeason />
     </AppContainer>
   );
 }

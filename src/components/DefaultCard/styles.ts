@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
+export const CardContainer = styled.section`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
+
 export const DefaultCard = styled.div`
- width: calc(30% - 20px); /* Define a largura das colunas, com margens à esquerda e à direita */
+  width: calc(30% - 20px); /* Define a largura das colunas, com margens à esquerda e à direita */
   margin: 10px; /* Adiciona espaçamento entre os cards */
   padding: 1em;
   border: 1px solid #ccc;

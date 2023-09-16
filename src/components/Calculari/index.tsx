@@ -1,7 +1,7 @@
 import React from 'react';
-import { CardContainer } from './styles';
 import CalculatorCard from './CalculatorCard';
 import { divTimeToInteger, multTimeToInteger, simpleSum } from './utils';
+import { CardContainer } from '../DefaultCard/styles';
 
 const Calculari: React.FC = () => {
   return (
