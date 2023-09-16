@@ -3,12 +3,14 @@ import { AnimeSeasonCardContainer } from "./styles";
 
 interface AnimeCardProps {
   title: string;
+  startYear: number;
 }
 
-const AnimeSeasonCard: React.FC<AnimeCardProps> = ({title}) => {
+const AnimeSeasonCard: React.FC<AnimeCardProps> = ({title,startYear}) => {
   return (
     <AnimeSeasonCardContainer>
       <TitleCard>{title}</TitleCard>
+      {startYear}
     </AnimeSeasonCardContainer>
   );
 }
