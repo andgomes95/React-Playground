@@ -38,7 +38,7 @@ const CalculatorCard: React.FC<CardProps> = ({ title,onCalculate }) => {
         onChange={(e) => setInput2(e.target.value)}
       />
       <InputCard 
-        type="text" 
+        type="text"  
         placeholder="Input 3"
         value={input3}
         onChange={(e) => setInput3(e.target.value)}
