@@ -15,7 +15,7 @@ export const simpleSum = (value1: string,value2: string): string => {
           hour: valAux1.hour + valAux2.hour,
           minutes: valAux1.minutes + valAux2.minutes
         }
-        if(valAux3.minutes > 60){
+        if(valAux3.minutes >= 60){
           valAux3.hour = valAux3.hour + Math.round(valAux3.minutes/60);
           valAux3.minutes = valAux3.minutes % 60;
         }
@@ -39,6 +39,19 @@ export const multTimeToInteger = (value1: string, value2: string): string =>{
       let valAux1 = stringToTimeToCalculate(value1);
       let valAux2 = parseInt(value2);
       return multTimeToCalculateToInteger(valAux1,valAux2);
+    }
+    return handleError();
+  }catch(erro: any){
+    return erro.message;
+  }
+}
+
+export const divTimeToInteger = (value1: string, value2: string): string =>{
+  try{
+    if(value1.includes(':')){
+      let valAux1 = stringToTimeToCalculate(value1);
+      let valAux2 = parseInt(value2);
+      return divTimeToCalculateToInteger(valAux1,valAux2);
     }
     return handleError();
   }catch(erro: any){
@@ -85,7 +98,17 @@ const subTimeToCalculate = (value1: TimeToCalculate, value2: TimeToCalculate): s
 const multTimeToCalculateToInteger = (value1: TimeToCalculate, value2: number): string => {
   value1.hour = value1.hour * value2;
   value1.minutes = value1.minutes * value2;
-  if(value1.minutes > 60){
+  if(value1.minutes >= 60){
+    value1.hour = value1.hour + Math.round(value1.minutes/60);
+    value1.minutes = value1.minutes % 60;
+  }
+  return timeToCalculateToString(value1);
+}
+const divTimeToCalculateToInteger = (value1: TimeToCalculate, value2: number): string => {
+  let minutesToAdd = value1.hour%value2 * 60;
+  value1.hour = Math.round(value1.hour / value2);
+  value1.minutes = (minutesToAdd + value1.minutes) / value2;
+  if(value1.minutes >= 60){
     value1.hour = value1.hour + Math.round(value1.minutes/60);
     value1.minutes = value1.minutes % 60;
   }
