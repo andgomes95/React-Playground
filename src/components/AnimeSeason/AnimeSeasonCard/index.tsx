@@ -18,7 +18,7 @@ const AnimeSeasonCard: React.FC<AnimeCardProps> = ({title,episodes,urlImage,syno
       </AnimeSeasonCardHeadContainer>
       <AnimeSeasonCardInfoContainer>
         <TitleCard>{title}</TitleCard>
-        <p>{themes.map((theme)=> theme.name + ' ')}</p>
+        <p>{episodes == null ? '?' : episodes} Episodes - {themes.map((theme)=> theme.name + ' ')}</p>
         <p>{synopsis}</p>
       </AnimeSeasonCardInfoContainer>
     </AnimeSeasonCardContainer>

@@ -32,4 +32,3 @@ export const ShortlinkNavBar = styled(Link)`
 export const PagesNavBar = styled.ul`
   display: flex;
 `;
-
