@@ -3,6 +3,7 @@ import { CardContainer } from "../DefaultCard/styles";
 import AnimeSeasonCard from "./AnimeSeasonCard";
 import axios from 'axios';
 import { Pagination, Themes } from "./utils";
+import { DefaultButton } from "../DefaultComponents/styles";
 
 export interface Anime {
   "title": string,
@@ -29,11 +30,9 @@ function AnimeSeason() {
       "has_next_page": false,
       "current_page": 1
   });
-  const [currentPage, setCurrentPage] = useState(pagination.current_page);
 
   const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
-    getEspecificPage(currentPage);
+    getEspecificPage(newPage);
   };
 
   async function getEspecificPage(page: number){
@@ -44,6 +43,13 @@ function AnimeSeason() {
     } catch (error) {
       console.error('Erro ao buscar os posts:', error);
     }
+  }
+
+  const printPaginationItems = (index: number)=>{
+    let aux = index+1;
+    if(aux < 10){
+      return '0'+aux;
+    } return aux;
   }
 
   useEffect(() => {
@@ -76,18 +82,18 @@ function AnimeSeason() {
           </>)
       })}
       <div>
-        <h1>Paginação de Itens</h1>
-        <ul>
-          {searchAnime.map((item, index) => (
-            <li key={index}>{item.title}</li>
-          ))}
-        </ul>
         <nav>
           <ul className="pagination">
             {Array.from({ length: pagination.last_visible_page}, (_, index) => (
-                <button className="page-link" onClick={() => handlePageChange(index + 1)}>
-                  {index + 1}
-                </button>
+              (index+1) === pagination.current_page ? 
+              <DefaultButton onClick={() => handlePageChange(index + 1)} color="selected">
+                {printPaginationItems(index)}
+              </DefaultButton>
+              :
+              <DefaultButton onClick={() => handlePageChange(index + 1)}>
+                {printPaginationItems(index)}
+              </DefaultButton>
+              
             ))}
           </ul>
         </nav>

@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ToDoValues } from '../styles';
-import { OrganizerButton } from '../../styles';
+import { DefaultButton } from '../../../DefaultComponents/styles';
 
 interface TodoItemProps {
   task: string;
@@ -21,7 +21,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ task, onDelete }) => {
   return (
     <ListItem>
       <ToDoValues>{task}</ToDoValues>
-      <OrganizerButton onClick={onDelete}>Delete</OrganizerButton>
+      <DefaultButton onClick={onDelete}>Delete</DefaultButton>
     </ListItem>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { OrganizerButton, OrganizerContainer, OrganizerTitle } from "../styles";
+import { OrganizerContainer, OrganizerTitle } from "../styles";
 import { SortingData, SortingItem, SortingTextArea } from "./styles";
+import { DefaultButton } from "../../DefaultComponents/styles";
 
 function SortingTasks(){
   const [newArrayTasks, setNewArrayTasks] = useState<string>('');
@@ -23,7 +24,7 @@ function SortingTasks(){
         value={newArrayTasks}
         onChange={(e) => setNewArrayTasks(e.target.value)}
       />
-      <OrganizerButton onClick={ getSeparatedTasks }>SORTING</OrganizerButton>
+      <DefaultButton onClick={ getSeparatedTasks }>SORTING</DefaultButton>
       <SortingData>
       {separatedTasks.length!==0 && separatedTasks.map((task)=>{
         return (

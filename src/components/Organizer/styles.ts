@@ -16,21 +16,3 @@ export const OrganizerTitle = styled.h1`
   font-size: 2em;
   color: ${props => props.color || '#BF4F74'};
 `;
-
-export const OrganizerButton = styled.button`
-  padding: 0.5em;
-  background-color: #BF4F74;
-  border: 0.1em solid #BF4F74;
-  color: papayawhip;
-  font-size: 1em;
-  border-radius: 0.25em;
-  margin: 0.25em;
- 
-  cursor: pointer;
-  box-shadow: none;
-
-  &:hover {
-    background-color: transparent;
-    color: #BF4F74;
-  }
-`;

@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
 import { ToDoAddTaskContainer, ToDoInput } from './styles';
-import { OrganizerButton, OrganizerContainer, OrganizerTitle } from '../styles';
+import { OrganizerContainer, OrganizerTitle } from '../styles';
+import { DefaultButton } from '../../DefaultComponents/styles';
 
 const List = styled.ul`
   list-style: none;
@@ -36,7 +37,7 @@ const ToDoList: React.FC = () => {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <OrganizerButton onClick={handleAddTask}>Add</OrganizerButton>
+        <DefaultButton onClick={handleAddTask}>Add</DefaultButton>
       </ToDoAddTaskContainer>
       <List>
         {tasks.map((task, index) => (

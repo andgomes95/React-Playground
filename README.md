@@ -49,5 +49,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] - Deixar componentes mais genericos;
 - [x] - fazer navbar funcionar e virar hamburguer no modo celular;
 - [x] - buscar api do myanimelist pra fazer funcionar direitinho;
-- [ ] - adicionar paginacao na anime season e remover componente de search
+- [x] - adicionar paginacao na anime season e remover componente de search
 - [x] - adicionar no organizer um randomizador de tasks;
+- [ ] - melhorar exibicao do componente anime season;
+- [ ] - botao global de mover para inicio da tela
+- [ ] - basic footer
