@@ -14,7 +14,7 @@ interface Anime {
   "year": string,
   "source": string,
   "studio": any,
-  "youtube": any,
+  "trailer": any,
   "themes": Themes[],
   "demographics": Themes[],
   "genres": Themes[],
@@ -25,6 +25,7 @@ interface Anime {
 function AnimeSeason() {
   const [animes, setaAnimes] = useState<Anime[]>([]);
   const [searchAnime, setSearchAnime] = useState<Anime[]>([]);
+   const [pagination, setPagination] = useState(0);
 
   useEffect(() => {
     async function fetchGet() {
@@ -32,6 +33,7 @@ function AnimeSeason() {
         const animesAux = await axios.get('https://api.jikan.moe/v4/seasons/upcoming');
         setaAnimes(animesAux.data.data);
         setSearchAnime(animesAux.data.data);
+        setPagination(animesAux.data.pagination.last_visible_page);
       } catch (error) {
         console.error('Erro ao buscar os posts:', error);
       }
@@ -48,7 +50,6 @@ function AnimeSeason() {
           const typeText = e.target.value;
           const result = animes.filter((anime) => anime.title.includes(typeText))
           setSearchAnime(result);
-          console.log(searchAnime);
         }}
       />
       {searchAnime.map((anime) => {
@@ -60,7 +61,8 @@ function AnimeSeason() {
             urlImage={anime.images.jpg.large_image_url}
             synopsis={anime.synopsis}
             themes={themes} 
-            id={anime.mal_id}        
+            id={anime.mal_id}
+            trailer={anime.trailer.youtube_id}     
           />
           </>)
       })}
