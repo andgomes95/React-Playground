@@ -31,11 +31,12 @@ export const AnimeSeasonCardHeadContainer = styled.div`
 `;
 
 export const AnimeSeasonCardInfoContainer = styled.div`
-    width: calc(90% - 20px);
+  width: calc(90% - 20px);
   padding: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  color: papayawhip;
   justify-content: center;
   @media (max-width: 767px){
     width: calc(90% - 20px);

@@ -18,6 +18,7 @@ interface Anime {
   "themes": Themes[],
   "demographics": Themes[],
   "genres": Themes[],
+  "mal_id": number
 }
 
 
@@ -30,6 +31,7 @@ function AnimeSeason() {
       try {
         const animesAux = await axios.get('https://api.jikan.moe/v4/seasons/upcoming');
         setaAnimes(animesAux.data.data);
+        setSearchAnime(animesAux.data.data);
       } catch (error) {
         console.error('Erro ao buscar os posts:', error);
       }
@@ -53,15 +55,15 @@ function AnimeSeason() {
         let themes = [...anime.themes, ...anime.genres,...anime.demographics ];
         return (<>
         <AnimeSeasonCard 
-          title={anime.title} 
-          episodes={anime.episodes} 
-          urlImage={anime.images.jpg.large_image_url}
-          synopsis={anime.synopsis}
-          themes={themes}
-        />
+            title={anime.title}
+            episodes={anime.episodes}
+            urlImage={anime.images.jpg.large_image_url}
+            synopsis={anime.synopsis}
+            themes={themes} 
+            id={anime.mal_id}        
+          />
           </>)
       })}
-
     </CardContainer>
   );
 }
