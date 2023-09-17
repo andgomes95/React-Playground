@@ -47,5 +47,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Todo List
 - [ ] - Deixar componentes mais genericos;
-- [ ] - fazer navbar funcionar e virar hamburguer no modo celular;
-- [ ] - buscar api do myanimelist pra fazer funcionar direitinho;
+- [x] - fazer navbar funcionar e virar hamburguer no modo celular;
+- [x] - buscar api do myanimelist pra fazer funcionar direitinho;
+- [ ] - adicionar paginacao na anime season e remover componente de search
+- [x] - adicionar no organizer um randomizador de tasks;

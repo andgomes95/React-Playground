@@ -1,7 +1,8 @@
 // src/components/TodoItem.tsx
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonTodo, ToDoValues } from '../styles';
+import { ToDoValues } from '../styles';
+import { OrganizerButton } from '../../styles';
 
 interface TodoItemProps {
   task: string;
@@ -20,7 +21,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ task, onDelete }) => {
   return (
     <ListItem>
       <ToDoValues>{task}</ToDoValues>
-      <ButtonTodo onClick={onDelete}>Delete</ButtonTodo>
+      <OrganizerButton onClick={onDelete}>Delete</OrganizerButton>
     </ListItem>
   );
 };
