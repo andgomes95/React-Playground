@@ -42,3 +42,35 @@ export const AnimeSeasonCardInfoContainer = styled.div`
     width: calc(90% - 20px);
     }
 `;
+
+export const AnimeSeasonTitle = styled.a`
+  font-size: 2em;
+  color: papayawhip;
+  display: flex;
+  text-decoration: none;
+`;
+
+export const AnimeSeasonTagItem = styled.div`
+  font-size: 0.75em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  background-color: white;
+  color: black;
+  margin: 0.5em;
+`;
+
+export const AnimeSeasonTags = styled.div`
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+`;
+
+export const AnimeSeasonSynopsis = styled.div`
+    width: calc(90% - 20px);
+    margin: 10px;
+    padding: 1em;
+    border-radius: 1em;
+    background: papayawhip;
+    color: black;
+`;

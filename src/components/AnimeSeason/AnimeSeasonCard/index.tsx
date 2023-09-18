@@ -1,7 +1,6 @@
-import { TitleCard } from "../../DefaultCard/styles";
 import YouTubeVideo from "../YoutubeVideo";
 import { Themes } from "../utils";
-import { AnimeSeasonCardContainer, AnimeSeasonCardHeadContainer, AnimeSeasonCardInfoContainer } from "./styles";
+import { AnimeSeasonCardContainer, AnimeSeasonCardHeadContainer, AnimeSeasonCardInfoContainer, AnimeSeasonSynopsis, AnimeSeasonTagItem, AnimeSeasonTags, AnimeSeasonTitle } from "./styles";
 
 interface AnimeCardProps {
   title: string;
@@ -21,10 +20,17 @@ const AnimeSeasonCard: React.FC<AnimeCardProps> = ({title,episodes,urlImage,syno
         <br />
       </AnimeSeasonCardHeadContainer>
       <AnimeSeasonCardInfoContainer>
-        <TitleCard>{title}</TitleCard>
-        <p>{episodes == null ? '?' : episodes} Episodes {themes.map((theme)=> ' - '+ theme.name)}</p>
-        <p>{synopsis}</p>
-        {trailer!= null && <YouTubeVideo videoId={trailer}/>}
+      <AnimeSeasonTitle href={`https://myanimelist.net/anime/${id}`} target="_blank">{title}</AnimeSeasonTitle>
+        <AnimeSeasonTags>
+          <AnimeSeasonTagItem>{episodes == null ? '?' : episodes} Episodes </AnimeSeasonTagItem>
+          {themes.map((theme)=> <AnimeSeasonTagItem>{theme.name}</AnimeSeasonTagItem>)}
+        </AnimeSeasonTags>
+        {synopsis !== null &&
+        <AnimeSeasonSynopsis>
+           <p>{synopsis}</p>
+          {trailer!= null && <YouTubeVideo videoId={trailer}/>}
+        </AnimeSeasonSynopsis>
+        }
       </AnimeSeasonCardInfoContainer>
     </AnimeSeasonCardContainer>
   );

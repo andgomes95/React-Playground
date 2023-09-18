@@ -13,7 +13,7 @@ export interface Anime {
   "season": string,
   "year": string,
   "source": string,
-  "studio": any,
+  "studios": Themes[],
   "trailer": any,
   "themes": Themes[],
   "demographics": Themes[],
@@ -37,7 +37,7 @@ function AnimeSeason() {
 
   async function getEspecificPage(page: number){
     try {
-      const animesAux = await axios.get(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}`);
+      const animesAux = await axios.get(`https://api.jikan.moe/v4/seasons/now?page=${page}`);
       setSearchAnime(animesAux.data.data);
       setPagination(animesAux.data.pagination);
     } catch (error) {
@@ -55,7 +55,7 @@ function AnimeSeason() {
   useEffect(() => {
     async function fetchGet() {
       try {
-        const animesAux = await axios.get('https://api.jikan.moe/v4/seasons/upcoming');
+        const animesAux = await axios.get('https://api.jikan.moe/v4/seasons/now');
         setSearchAnime(animesAux.data.data);
         setPagination(animesAux.data.pagination);
       } catch (error) {
@@ -66,9 +66,10 @@ function AnimeSeason() {
   }, []);
 
   return (
+    <>
     <CardContainer>
       {searchAnime.map((anime) => {
-        let themes = [...anime.themes, ...anime.genres,...anime.demographics ];
+        let themes = [ ...anime.studios,...anime.themes, ...anime.genres,...anime.demographics ];
         return (<>
         <AnimeSeasonCard 
             title={anime.title}
@@ -81,24 +82,22 @@ function AnimeSeason() {
           />
           </>)
       })}
-      <div>
-        <nav>
-          <ul className="pagination">
-            {Array.from({ length: pagination.last_visible_page}, (_, index) => (
-              (index+1) === pagination.current_page ? 
-              <DefaultButton onClick={() => handlePageChange(index + 1)} color="selected">
-                {printPaginationItems(index)}
-              </DefaultButton>
-              :
-              <DefaultButton onClick={() => handlePageChange(index + 1)}>
-                {printPaginationItems(index)}
-              </DefaultButton>
-              
-            ))}
-          </ul>
-        </nav>
-      </div>
     </CardContainer>
+    <CardContainer>
+      <div>
+        {Array.from({ length: pagination.last_visible_page}, (_, index) => (
+          (index+1) === pagination.current_page ? 
+          <DefaultButton onClick={() => handlePageChange(index + 1)} color="selected">
+            {printPaginationItems(index)}
+          </DefaultButton>
+          :
+          <DefaultButton onClick={() => handlePageChange(index + 1)}>
+            {printPaginationItems(index)}
+          </DefaultButton>
+        ))}
+      </div>
+  </CardContainer>
+  </>
   );
 }
 

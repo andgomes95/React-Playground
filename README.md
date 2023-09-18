@@ -54,3 +54,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] - melhorar exibicao do componente anime season;
 - [ ] - botao global de mover para inicio da tela
 - [ ] - basic footer
+- [ ] - melhorar doc
+- [ ] - criar load page
+- [ ] - ajustar todo list
